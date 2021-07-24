@@ -17,7 +17,7 @@ on('playerSpawned', async () => {
 
 setImmediate(() => {
   emitNet(CharacterEvents.FETCH_CHARACTERS);
-})
+});
 
 RegisterCommand(
   'getchars',
@@ -31,7 +31,7 @@ RegisterCommand(
 onNet(CharacterEvents.SEND_CHARACTERS, (characters: any) => {
   console.log('characters');
   console.log(characters);
-  global.exports['chip-ui'].NUISendCharacters(characters)
+  global.exports['chip-ui'].NUISendCharacters(characters);
 });
 
 onNet(CharacterEvents.SEND_CLOTHING, async (body: CharacterBodyProps, clothing: CharacterClothingProps) => {

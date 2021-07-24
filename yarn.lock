@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@citizenfx/client@^2.0.4194-1":
-  version "2.0.4194-1"
-  resolved "https://registry.yarnpkg.com/@citizenfx/client/-/client-2.0.4194-1.tgz#e9df6c8097c46bde0a61fa17463736af59e0d748"
-  integrity sha512-1pw+jSI5QXuzrHjtBIe1fp9rKZlzTtqqIY6Jrqjdlhk8/EkGqSn8vx/oPV7UBLMfRtS0mXyqBXZKEBp0ojlkIA==
+"@citizenfx/client@^2.0.4262-1":
+  version "2.0.4262-1"
+  resolved "https://registry.yarnpkg.com/@citizenfx/client/-/client-2.0.4262-1.tgz#5f52ea3066fe13097e8517b4cf3e841e24f84a5b"
+  integrity sha512-rBymNfwy1fZ0BDklPtD9apV+RVhPvLNu5est0vPQvTPdLTkn08iP6fMEZ20IPAiAQ7ge3ogQx6roBysN7OFX5w==
 
-"@citizenfx/server@^2.0.4194-1":
-  version "2.0.4194-1"
-  resolved "https://registry.yarnpkg.com/@citizenfx/server/-/server-2.0.4194-1.tgz#65295f7c4894117070a830d1a6e7b92c7e1ff323"
-  integrity sha512-6PmYmo8z+edsmMYVAr0DH77n6nBt4z20sqmI+7Yx4ef6+fzCn9QBgjhofZ2CZDagqrhpwPPMAKqbMTBPeWgC6w==
+"@citizenfx/server@^2.0.4262-1":
+  version "2.0.4262-1"
+  resolved "https://registry.yarnpkg.com/@citizenfx/server/-/server-2.0.4262-1.tgz#db745bb05380f763e8cd92fb6a571fd766aa8775"
+  integrity sha512-lF3JdUdo0T7exUIqtmlEX/eziKTBXn0yg8S4SNHNguE8dtuK8UwGh1tEmeI3CAcp/NdwbsX+dHXr/n0wWj1aZQ==
 
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.3"

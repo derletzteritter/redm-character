@@ -9,8 +9,8 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "@citizenfx/client": "^2.0.4194-1",
-    "@citizenfx/server": "^2.0.4194-1",
+    "@citizenfx/client": "^2.0.4262-1",
+    "@citizenfx/server": "^2.0.4262-1",
     "@types/node": "^16.3.1",
     "mysql2": "^2.2.5"
   },
