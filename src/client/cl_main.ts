@@ -2,7 +2,6 @@ import Character from './classes/character';
 import { Delay } from '../shared/functions';
 import { CharacterEvents } from '../shared/events';
 import { CharacterBodyProps, CharacterClothingProps } from '../shared/types';
-import exp from "constants";
 
 on('playerSpawned', async () => {
   console.log('Player spawned');
@@ -16,8 +15,22 @@ on('playerSpawned', async () => {
   emitNet(CharacterEvents.FETCH_CHARACTERS);
 });
 
+setImmediate(() => {
+  emitNet(CharacterEvents.FETCH_CHARACTERS);
+})
+
+RegisterCommand(
+  'getchars',
+  () => {
+    emitNet(CharacterEvents.FETCH_CHARACTERS);
+  },
+  false,
+);
+
 // keeping it 'any' for now.
 onNet(CharacterEvents.SEND_CHARACTERS, (characters: any) => {
+  console.log('characters');
+  console.log(characters);
   global.exports['chip-ui'].NUISendCharacters(characters)
 });
 

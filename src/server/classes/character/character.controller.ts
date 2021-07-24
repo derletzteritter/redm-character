@@ -6,9 +6,9 @@ onNet(CharacterEvents.FETCH_CHARACTERS, async () => {
   await CharacterService.handleGetCharacters(_source);
 });
 
-onNet(CharacterEvents.SELECT_CHARACTER, (characterData: any) => {
+onNet(CharacterEvents.SELECT_CHARACTER, async (characterData: any) => {
   const _source = (<any>global).source;
-  CharacterService.handleNewCharacter(_source, characterData);
+  await CharacterService.handleNewCharacter(_source, characterData);
 })
 
 global.exports('getPlayer', (src: number) => {

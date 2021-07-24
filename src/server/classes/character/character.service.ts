@@ -25,7 +25,7 @@ class _CharacterService {
   }
 
   getIdentifier(source: number): number {
-    return this.getCharacter(source).getCharid()
+    return this.getCharacter(source).getCharid();
   }
 
   getCharacterFromIdentifier(identifier: string): Character | null {
@@ -34,20 +34,10 @@ class _CharacterService {
     return character;
   }
 
-  private addCharactersToMap(character: Character): void {
-    this.charactersBySource.set(character.getCharid(), character);
+  private addCharactersToMap(source: number, character: Character): void {
+    this.charactersBySource.set(source, character);
   }
-
-  // FIXME: This will not stay like this. Should be taking in a object of the character data.
-  handleNewCharacter(source: number, characterData: CharacterData): void {
-    const identifier = getGameLicense(source);
-
-    const character = new Character({ playerId: characterData.charid, name: characterData.name });
-    this.addCharactersToMap(character);
-
-    console.log('New character loaded');
-    console.log(character);
-  }
+  
 
   // CHARACTER HANDLING
 
@@ -55,11 +45,24 @@ class _CharacterService {
     try {
       const playerId = await PlayerService.getPlayerId(src);
       const characters = await this.characterDB.fetchCharacters(playerId);
+      console.log('handleGetCharacters', characters);
 
-      emitNet(CharacterEvents.SEND_CHARACTERS, characters);
+      emitNet(CharacterEvents.SEND_CHARACTERS, src, characters);
     } catch (e) {
       console.log(e.message);
     }
+  }
+  
+  // FIXME: This will not stay like this. Should be taking in a object of the character data.
+  async handleNewCharacter(source: number, characterData: CharacterData): Promise<void> {
+    console.log('characterData charid', characterData.charid);
+    
+    const character = new Character({ playerId: characterData.charid, name: characterData.name });
+    this.addCharactersToMap(source, character);
+    
+    console.log('New character loaded');
+    console.log(character);
+    await this.handleGetPlayerBody(source);
   }
 
   /**

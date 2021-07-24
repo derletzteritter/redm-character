@@ -4,7 +4,7 @@ import { db } from '../../database/db';
 
 export class _CharacterDB {
   async fetchCharacters(playerId: number): Promise<any[]> {
-    const query = `SELECT * FROM characters WHERE playerid = ?`;
+    const query = `SELECT id as charid, name FROM characters WHERE playerid = ?`;
     const [results] = await db.query(query, [playerId]);
 
     return <any[]>results;
