@@ -19,13 +19,6 @@ setImmediate(() => {
   emitNet(CharacterEvents.FETCH_CHARACTERS);
 });
 
-RegisterCommand(
-  'getchars',
-  () => {
-    emitNet(CharacterEvents.FETCH_CHARACTERS);
-  },
-  false,
-);
 
 // keeping it 'any' for now.
 onNet(CharacterEvents.SEND_CHARACTERS, (characters: any) => {
@@ -37,19 +30,3 @@ onNet(CharacterEvents.SEND_CHARACTERS, (characters: any) => {
 onNet(CharacterEvents.SEND_CLOTHING, async (body: CharacterBodyProps, clothing: CharacterClothingProps) => {
   await Character.loadPlayer('mp_male', body, clothing);
 });
-
-RegisterCommand(
-  'setmodel',
-  async () => {
-    emitNet(CharacterEvents.FETCH_CLOTHING);
-  },
-  false,
-);
-
-RegisterCommand(
-  'ismale',
-  () => {
-    console.log('isMale', IsPedMale(PlayerPedId()));
-  },
-  false,
-);

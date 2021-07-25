@@ -11,14 +11,14 @@ onNet(CharacterEvents.SELECT_CHARACTER, async (characterData: any) => {
   await CharacterService.handleNewCharacter(_source, characterData);
 })
 
-global.exports('getPlayer', (src: number) => {
+global.exports('GetCharacter', (src: number) => {
   return CharacterService.getCharacter(src);
 });
 
-global.exports('getIdentifier', (src: number) => {
+global.exports('GetIdentifier', (src: number) => {
   return CharacterService.getIdentifier(src);
 });
 
-global.exports('getCharacterFromIdentifier', (identifier: string) => {
+global.exports('GetCharacterFromIdentifier', (identifier: string) => {
   return CharacterService.getCharacterFromIdentifier(identifier);
 });
