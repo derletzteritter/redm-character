@@ -44,6 +44,7 @@ class _Character {
     for (const [key, value] of Object.entries(body)) {
       Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);
     }
+    
 
     // N_0x704c908e9c405136
     Citizen.invokeNative('0x704c908e9c405136', target);
@@ -55,7 +56,15 @@ class _Character {
   }
 
   loadClothes(target: number, clothing: CharacterClothingProps): void {
+    
     for (const [key, value] of Object.entries(clothing)) {
+      /*Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);*/
+      console.log(key, value)
+    }
+    
+    global.exports['chip-clothing'].LoadClothes('hello fuck face', clothing)
+    
+   /* for (const [key, value] of Object.entries(clothing)) {
       Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);
     }
 
@@ -65,7 +74,7 @@ class _Character {
     Citizen.invokeNative('0xaab86462966168ce', target, 1);
 
     // UpdatePedVariation
-    Citizen.invokeNative('0xCC8CA3E88256E58F', target, false, true, true, true, false);
+    Citizen.invokeNative('0xCC8CA3E88256E58F', target, false, true, true, true, false);*/
   }
 
   /**

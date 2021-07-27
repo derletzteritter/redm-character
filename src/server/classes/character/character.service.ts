@@ -80,6 +80,26 @@ class _CharacterService {
       console.log(e.message);
     }
   }
+  
+  async handleFetchClothing(src: number): Promise<void> {
+    try {
+      const charid = this.getCharacter(src).getCharid();
+      const clothing = await this.characterDB.fetchClothing(charid);
+      
+      emitNet('chip-clothing:sendClothesValue', src, JSON.parse(clothing));
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+  
+  async handleUpdateClothing(src: number, clothing: any): Promise<void> {
+    try {
+      const charid = this.getCharacter(src).getCharid();
+      await this.characterDB.updateClothing(charid, clothing);
+    } catch (e) {
+      console.log(e.message)
+    }
+  }
 }
 
 const CharacterService = new _CharacterService();

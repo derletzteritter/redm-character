@@ -25,6 +25,11 @@ export class _CharacterDB {
 
     return result[0].clothes;
   }
+  
+  async updateClothing(charid: number, clothing: any): Promise<void> {
+    const query = `UPDATE characters SET clothes = ? WHERE id = ?`
+    await db.query(query, [clothing, charid]);
+  }
 }
 
 const CharacterDB = new _CharacterDB();

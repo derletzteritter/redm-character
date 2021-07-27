@@ -1,11 +1,9 @@
 import Character from './classes/character';
 import { Delay } from '../shared/functions';
 import { CharacterEvents } from '../shared/events';
-import { CharacterBodyProps, CharacterClothingProps } from '../shared/types';
+import { CharacterBodyProps, CharacterClothingProps, CharacterData } from '../shared/types';
 
 on('playerSpawned', async () => {
-  console.log('Player spawned');
-
   // @ts-ignore
   while (!Citizen.invokeNative('0xA0BC8FAED8CFEB3C', PlayerPedId())) {
     await Delay(1000);
@@ -19,11 +17,7 @@ setImmediate(() => {
   emitNet(CharacterEvents.FETCH_CHARACTERS);
 });
 
-
-// keeping it 'any' for now.
-onNet(CharacterEvents.SEND_CHARACTERS, (characters: any) => {
-  console.log('characters');
-  console.log(characters);
+onNet(CharacterEvents.SEND_CHARACTERS, (characters: CharacterData) => {
   global.exports['chip-ui'].NUISendCharacters(characters);
 });
 
