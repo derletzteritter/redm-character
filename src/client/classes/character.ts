@@ -62,7 +62,7 @@ class _Character {
       console.log(key, value)
     }
     
-    global.exports['chip-clothing'].LoadClothes('hello fuck face', clothing)
+    global.exports['chip-clothing'].LoadClothes(clothing)
     
    /* for (const [key, value] of Object.entries(clothing)) {
       Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);

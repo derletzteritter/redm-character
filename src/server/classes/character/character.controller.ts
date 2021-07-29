@@ -1,4 +1,5 @@
 import { CharacterEvents } from '../../../shared/events';
+import { CharacterClothingProps, CharacterData } from '../../../shared/types';
 import CharacterService from './character.service';
 
 onNet(CharacterEvents.FETCH_CHARACTERS, async () => {
@@ -6,7 +7,7 @@ onNet(CharacterEvents.FETCH_CHARACTERS, async () => {
   await CharacterService.handleGetCharacters(_source);
 });
 
-onNet(CharacterEvents.SELECT_CHARACTER, async (characterData: any) => {
+onNet(CharacterEvents.SELECT_CHARACTER, async (characterData: CharacterData) => {
   const _source = (<any>global).source;
   await CharacterService.handleNewCharacter(_source, characterData);
 })
@@ -16,7 +17,7 @@ onNet(CharacterEvents.FETCH_CLOTHING, async () => {
   await CharacterService.handleFetchClothing(_source)
 })
 
-onNet(CharacterEvents.UPDATE_CLOTHING, async (clothing: any) => {
+onNet(CharacterEvents.UPDATE_CLOTHING, async (clothing: CharacterClothingProps) => {
   console.log('updated clothing', clothing)
   const _source = (<any>global).source;
   await CharacterService.handleUpdateClothing(_source, JSON.stringify(clothing));
