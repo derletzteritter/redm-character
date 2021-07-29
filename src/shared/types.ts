@@ -5,6 +5,8 @@ export interface CharacterClothingProps {
   shirt: string;
   chaps: string;
   coat: string;
+  gunbelts: string;
+  belt: string;
 }
 
 export interface CharacterBodyProps {
