@@ -16,3 +16,7 @@ on('onServerResourceStart', async (resource: string) => {
 		}
 	}
 });
+
+global.exports('GetPlayer', (src: number) => {
+	return PlayerService.getPlayer(src);
+})

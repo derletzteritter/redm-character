@@ -17,7 +17,7 @@ onNet(CharacterEvents.FETCH_CLOTHING, async () => {
   await CharacterService.handleFetchClothing(_source)
 })
 
-onNet(CharacterEvents.UPDATE_CLOTHING, async (clothing: CharacterClothingProps) => {
+onNet(CharacterEvents.UPDATE_CLOTHING, async (clothing: CharacterClothingProps): Promise<void> => {
   console.log('updated clothing', clothing)
   const _source = (<any>global).source;
   await CharacterService.handleUpdateClothing(_source, JSON.stringify(clothing));
@@ -32,9 +32,19 @@ global.exports('GetCharacter', (src: number) => {
     },
     getMoney: () => {
       return player.getMoney()
+    },
+    setMoney: () => {
+      console.log('Giving you that sexy money')
+    },
+    getName: () => {
+      return player.getName();
     }
   }
 });
+
+global.exports('GetCharid', (src: number) => {
+  return CharacterService.getCharacter(src).getCharid();
+})
 
 global.exports('GetIdentifier', (src: number) => {
   return CharacterService.getIdentifier(src);

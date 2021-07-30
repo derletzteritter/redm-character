@@ -59,7 +59,6 @@ class _CharacterService {
     
     const character = new Character({ playerId: characterData.charid, name: characterData.name });
     this.addCharactersToMap(source, character);
-    
     console.log('New character loaded');
     console.log(character);
     await this.handleGetPlayerBody(source);
