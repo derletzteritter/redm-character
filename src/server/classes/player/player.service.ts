@@ -51,9 +51,6 @@ class _PlayerService {
 
     const player = new Player({ source, identifier, name, playerId });
     this.addPlayersToMap(source, player);
-
-    console.log('New player loaded');
-    console.log(player);
   }
 }
 

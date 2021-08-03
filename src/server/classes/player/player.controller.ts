@@ -1,10 +1,10 @@
 import PlayerService from "./player.service";
 
-on('playerJoining', () => {
+on('playerJoining', async () => {
 	const _source = (<any>global).source;
 	const playerName = GetPlayerName(_source);
 	
-	PlayerService.handleNewPlayer(_source);
+	await PlayerService.handleNewPlayer(_source);
 	console.log(`${playerName} is joining`);
 });
 
