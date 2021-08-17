@@ -1,5 +1,5 @@
-import { Delay } from '../../shared/functions';
-import { CharacterBodyProps, CharacterClothingProps } from '../../shared/types';
+import { Delay } from '../../../../ts-shared/shared/functions';
+import { CharacterBodyProps, CharacterClothingProps } from '../../../../ts-shared/shared/types';
 
 class _Character {
   constructor() {
@@ -41,40 +41,12 @@ class _Character {
   }
 
   loadBody(target: number, body: CharacterBodyProps): void {
-    for (const [key, value] of Object.entries(body)) {
-      Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);
-    }
-    
-
-    // N_0x704c908e9c405136
-    Citizen.invokeNative('0x704c908e9c405136', target);
-    // N_0xaab86462966168ce
-    Citizen.invokeNative('0xaab86462966168ce', target, 1);
-
-    // UpdatePedVariation
-    Citizen.invokeNative('0xCC8CA3E88256E58F', target, false, true, true, true, false);
+    console.log('gang', body);
+    global.exports['chip-clothing'].LoadBody(body);
   }
 
   loadClothes(target: number, clothing: CharacterClothingProps): void {
-    
-    for (const [key, value] of Object.entries(clothing)) {
-      /*Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);*/
-      console.log(key, value)
-    }
-    
-    global.exports['chip-clothing'].LoadClothes(clothing)
-    
-   /* for (const [key, value] of Object.entries(clothing)) {
-      Citizen.invokeNative('0xD3A7B003ED343FD9', target, GetHashKey(value), false, true, true);
-    }
-
-    // N_0x704c908e9c405136
-    Citizen.invokeNative('0x704c908e9c405136', target);
-    // N_0xaab86462966168ce
-    Citizen.invokeNative('0xaab86462966168ce', target, 1);
-
-    // UpdatePedVariation
-    Citizen.invokeNative('0xCC8CA3E88256E58F', target, false, true, true, true, false);*/
+    global.exports['chip-clothing'].LoadClothes(clothing);
   }
 
   /**

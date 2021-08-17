@@ -1,7 +1,7 @@
 import Character from './classes/character';
-import { Delay } from '../shared/functions';
-import { CharacterEvents } from '../shared/events';
-import { CharacterBodyProps, CharacterClothingProps, CharacterData } from '../shared/types';
+import { Delay } from '../../../ts-shared/shared/functions';
+import { CharacterEvents } from '../../../ts-shared/shared/events';
+import { CharacterBodyProps, CharacterClothingProps, CharacterData } from '../../../ts-shared/shared/types';
 
 on('playerSpawned', async () => {
   // @ts-ignore
