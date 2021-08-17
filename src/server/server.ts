@@ -1,3 +1,3 @@
 // Start coding!
-import './classes/character/character.controller';
-import './classes/player/player.controller';
+import './controllers/character.controller';
+import './controllers/player.controller';
